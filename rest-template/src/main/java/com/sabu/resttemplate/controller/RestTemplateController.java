@@ -1,6 +1,7 @@
 package com.sabu.resttemplate.controller;
 
 
+import com.sabu.resttemplate.aop.MethodLogging;
 import com.sabu.resttemplate.dto.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
@@ -26,6 +27,7 @@ public class RestTemplateController {
     }
 
     @GetMapping("/getStudentsAsString")
+    @MethodLogging
     public String getStudents() {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
@@ -38,6 +40,7 @@ public class RestTemplateController {
     }
 
     @GetMapping("/getStudentList")
+    @MethodLogging
     public List<Student> getStudentList() {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
